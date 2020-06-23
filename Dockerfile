@@ -18,9 +18,6 @@ RUN chmod +x /usr/sbin/run-vsftpd.sh && \
 VOLUME /home/vsftpd
 VOLUME /var/log/vsftpd
 
-RUN mkdir /home/vsftpd/Testdir
-COPY README.md /home/vsftpd
-
 EXPOSE 20 21
 
 CMD ["/usr/sbin/run-vsftpd.sh"]
