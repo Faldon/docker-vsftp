@@ -11,14 +11,15 @@ ENV PASV_ADDRESS REQUIRED
 COPY vsftpd.conf /etc/vsftpd/
 COPY vsftpd_virtual /etc/pam.d/
 COPY run-vsftpd.sh /usr/sbin/
-COPY README.md /home/vsftpd
 
 RUN chmod +x /usr/sbin/run-vsftpd.sh && \
-		mkdir -p /var/run/vsftpd/empty && \
-    mkdir /home/vsftpd/Testdir
+		mkdir -p /var/run/vsftpd/empty 
 
 VOLUME /home/vsftpd
 VOLUME /var/log/vsftpd
+
+RUN mkdir /home/vsftpd/Testdir
+COPY README.md /home/vsftpd
 
 EXPOSE 20 21
 
